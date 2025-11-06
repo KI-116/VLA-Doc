@@ -42,6 +42,7 @@ Any real world results are very important and more is better, as sim-only is har
 ## 4.2 Driving scene understanding
 
 > coVLA dataset and model description
+
 CoVLA-Agent as illustrated is a VLA model designed for autonomous driving. It utilize the pretrained Llama-2 (7B) as a language model and CLIP ViT-L (224×224 pixels) as a vision encoder.
 
 CoVLA-Agent concentrates on two tasks, which are traffic scene description generation and trajectory prediction. The model takes the ego vehicle’s speed as an input, which is transformed into an embedding vector using a Multi Layer Perceptron (MLP). The visual features extracted by CLIP ViT-L are concatenated with the speed embedding and text embedding, and then fed into the Llama-2 model. For trajectory prediction, special tokens are used as trajectory queries. The outputs of these trajectory queries are processed by an MLP layer, resulting in a sequence of 10 (x,y,z) coordinates representing the predicted trajectory of the vehicle relative to its current position, spanning a three-second time horizon.
